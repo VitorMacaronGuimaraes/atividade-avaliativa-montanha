@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class CompeticaoGinastica {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Nome do ginasta: ");
+        String nome = scanner.nextLine();
+        
+        double[] notas = new double[7];
+        
+        // Receber as notas dos jurados
+        for (int i = 0; i < 7; i++) {
+            System.out.print("Nota " + (i + 1) + ": ");
+            notas[i] = scanner.nextDouble();
+        }
+        
+        // Encontrar a melhor e a pior nota
+        double melhorNota = notas[0];
+        double piorNota = notas[0];
+        for (int i = 1; i < 7; i++) {
+            if (notas[i] > melhorNota) {
+                melhorNota = notas[i];
+            }
+            if (notas[i] < piorNota) {
+                piorNota = notas[i];
+            }
+        }
+        
+        // Calcular a média sem a melhor e a pior nota
+        double somaNotas = 0;
+        for (int i = 0; i < 7; i++) {
+            if (notas[i] != melhorNota && notas[i] != piorNota) {
+                somaNotas += notas[i];
+            }
+        }
+        double media = somaNotas / 5;
+        
+        // Exibir o resultado final
+        System.out.println("\nResultado final:");
+        System.out.println("Atleta: " + nome);
+        System.out.println("Melhor nota: " + melhorNota);
+        System.out.println("Pior nota: " + piorNota);
+        System.out.printf("Média: %.2f\n", media);
+    }
+}

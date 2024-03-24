@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Serie {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Digite o valor de n: ");
+        int n = scanner.nextInt();
+        
+        double soma = 0.0;
+        int numerador = 1;
+        int denominador = 1;
+        
+        System.out.print("Os " + n + " termos da série são: ");
+        for (int i = 0; i < n; i++) {
+            if (i > 0) {
+                System.out.print(" + ");
+            }
+            System.out.print(numerador + "/" + denominador);
+            soma += (double) numerador / denominador;
+            numerador++;
+            denominador += 2;
+        }
+        
+        System.out.println("\nA soma da série é: " + soma);
+    }
+}
